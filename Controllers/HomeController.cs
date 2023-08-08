@@ -33,10 +33,6 @@ public class HomeController : Controller
     {
         if (ModelState.IsValid)
         {
-            if (newDish.Description == null)
-            {
-                newDish.Description = "";
-            }
             _context.Add(newDish);
             _context.SaveChanges();
             return RedirectToAction("Index");
@@ -48,14 +44,14 @@ public class HomeController : Controller
     [HttpGet("dishes/{DishId}")]
     public IActionResult Show(int DishId)
     {
-        Dish OneDish = _context.Dishes.FirstOrDefault(a => a.DishId == DishId);
+        Dish? OneDish = _context.Dishes.FirstOrDefault(a => a.DishId == DishId);
         return View("Show", OneDish);
     }
 
     [HttpGet("dishes/{DishId}/edit")]
     public IActionResult Edit(int DishId)
     {
-        Dish OneDish = _context.Dishes.FirstOrDefault(a => a.DishId == DishId);
+        Dish? OneDish = _context.Dishes.FirstOrDefault(a => a.DishId == DishId);
         return View("Edit", OneDish);
     }
 
@@ -69,14 +65,7 @@ public class HomeController : Controller
             OldDish.Chef = newDish.Chef;
             OldDish.Tastiness = newDish.Tastiness;
             OldDish.Calories = newDish.Calories;
-            if (newDish.Description == null)
-            {
-                OldDish.Description = "";
-            }
-            else 
-            {
-                OldDish.Description = newDish.Description;
-            }
+            OldDish.Description = newDish.Description;
             OldDish.UpdatedAt = DateTime.Now;
             _context.SaveChanges();
             return RedirectToAction("Show", new { DishId = DishId});

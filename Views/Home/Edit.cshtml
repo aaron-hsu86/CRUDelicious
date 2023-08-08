@@ -11,18 +11,18 @@
     <div class="d-flex flex-column gap-3">
         <label asp-for="Chef">Chef's Name</label>
         <span asp-validation-for="Chef" class="text-danger"></span>
-        <input asp-for="Chef" type="text" value="@Model.Chef" placeholder="@Model.Chef">
+        <input asp-for="Chef" type="text" placeholder="@Model.Chef">
         <label asp-for="Name">Name of dish</label>
         <span asp-validation-for="Name" class="text-danger"></span>
-        <input asp-for="Name" type="text" value="@Model.Name" placeholder="@Model.Name">
+        <input asp-for="Name" type="text" placeholder="@Model.Name">
         <label asp-for="Calories"># of Calories</label>
         <span asp-validation-for="Calories" class="text-danger"></span>
-        <input asp-for="Calories" type="number" value="@Model.Calories" placeholder="@Model.Calories">
+        <input asp-for="Calories" type="number" placeholder="@Model.Calories">
     </div>
     <div class="d-flex flex-column gap-3">
         <label asp-for="Tastiness">Tastiness</label>
         <select asp-for="Tastiness">
-            <option value="@Model.Tastiness" selected>Original tastiness: @Model.Tastiness</option>
+            <option value="" disabled selected>--Select Tastiness--</option>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
