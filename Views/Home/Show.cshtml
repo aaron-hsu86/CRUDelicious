@@ -1,0 +1,20 @@
+@model Dish
+<h1>@Model.Name</h1>
+<div class="d-flex justify-content-center gap-3">
+    <a asp-action="Index">Home</a>
+    <p>|</p>
+    <a asp-action="New">Add a Dish</a>
+</div>
+<div>
+    <p>@Model.Name by @Model.Chef</p>
+    <hr>
+    <p>@Model.Description</p>
+    <p>Calories: @Model.Calories</p>
+    <p>Tastiness: @Model.Tastiness</p>
+</div>
+<div class="d-flex justify-content-evenly">
+    <form asp-action="Destroy" asp-controller="Home" asp-route-DishId="@Model.DishId" method="post">
+        <input type="submit" value="Delete" class="btn btn-danger">
+    </form>
+    <a asp-action="Edit" asp-route-DishId="@Model.DishId" class="btn btn-info">Edit</a>
+</div>
