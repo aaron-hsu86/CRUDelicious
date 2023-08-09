@@ -18,7 +18,7 @@ public class HomeController : Controller
     [HttpGet("")]
     public IActionResult Index()
     {
-        List<Dish> AllDishes = _context.Dishes.OrderBy(d => d.CreatedAt).ToList();
+        List<Dish> AllDishes = _context.Dishes.OrderByDescending(d => d.CreatedAt).ToList();
         return View(AllDishes);
     }
 
