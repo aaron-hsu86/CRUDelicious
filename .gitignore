@@ -1,5 +1,5 @@
 /.vscode
 /bin
 /obj
-/wwwroot/lib
 appsettings.json
+/wwwroot/lib
